@@ -10,7 +10,7 @@
 
 .header {
     background-color: @main-color;
-    display:flex;
+    display: flex;
     text-align: center;
     width: 100%;
     height: 20vh;
@@ -32,7 +32,7 @@
 .header-text-container h1 {
     font-size: 3rem;
     color: @white;
-    font-family: 'moneta';
+    font-family: "acuman"
 }
 
 .header-text-container h3 {
@@ -44,13 +44,67 @@
 // .graphs-section {
 //  ADD THIS BACK IN WHEN YOU HAVE THE GRAPHS SECTION
 // }
+// .graphs-section added
+.graphs-section {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+// gr-office-img added
+.gr-office-img {
+    height: 165px;
+    width: 320px;
+    margin-bottom: 10%;
+}
+
+// gr-nationality-img added
+.gr-nationality-img {
+    height: 180px;
+    width: 200px;
+    margin: 0 0 20px -15px;
+}
+
+//gr-overtime-img added
+.gr-overtime-img {
+    height: 170px;
+    width: 300px;
+    margin-bottom: 25px;
+}
+
+// grant-rates-by-office-graph-container added
+.grant-rates-by-office-graph-container {
+    text-align: center;
+    height: 165px;
+    font-size: 1.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+// grant-rates-by-nationality-container added
+.grant-rates-by-nationality-container {
+    text-align: center;
+    margin-bottom: 3%;
+    margin-left: -15px;
+    font-size: 1.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+//grant-rates-over-time-container added
+.grant-rates-over-time-container {
+    text-align: center;
+    height: 165px;
+    font-size: 1.5rem;
+    font-family: 'Courier New', monospace;
+}
+
 
 .view-more-data-btn-container {
     height: 44px;
-    width: 180px;
+    width: 300px;
     margin: 0 auto;
     text-align: center;
     margin-bottom: 10%;
+    display: flex;
+    justify-content: space-between
 }
 
 .middle-section {
@@ -71,16 +125,65 @@
 }
 
 .middle-section-text-container h3 {
-    font-family: 'acumin';
+    font-family: "acuman";
     font-size: 1.4rem;
 }
 
 // .bottom-section {
 //      ADD THIS BACK IN WHEN YOU HAVE A BOTTOM SECTION
 // }
+.bottom-section {
+    text-align: center;
+    margin-top: 200px;
+}
+.bottom-section h1 {
+    font-family: 'Courier New', monospace;
+    font-size: 50px;
+}
+// data-container added
+.data-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+    margin-top: 150px;
+}
+
+// first-data-point-container
+.first-data-point-container {
+    width: 400px;
+}
+.first-data-point-container h2 {
+    font-size: 2rem;
+}
+.first-data-point-container h3 {
+    font-size: 1.5rem;
+}
+
+// second-data-point-container
+.second-data-point-container {
+    width: 400px;
+}
+.second-data-point-container h2 {
+    font-size: 2rem;
+}
+.second-data-point-container h3 {
+    font-size: 1.5rem;
+}
+
+// third-data-point-container
+.third-data-point-container {
+    width: 400px;
+}
+.third-data-point-container h2 {
+    font-size: 2rem;
+}
+.third-data-point-container h3 {
+    font-size: 1.5rem;
+}
+
 
 .back-to-top {
-    width: 8%;
+    width:7%;
     font-size: 1.2rem;
     cursor: pointer;
     color: black;
@@ -95,29 +198,30 @@
 }
 
 .ant-btn:hover {
-    border-color: @secondary-color  !important;
+    border-color: @secondary-color !important;
 }
 
 @media @mobile-small {
     .header {
         height: 30vh;
-       display: block;
-       position: relative;
+        display: block;
+        position: relative;
     }
-    .hrf-logo-img-container{
-       height:fit-content;
-       position: absolute;
-       top: 0;
-       left: 0;
-       margin: 2% 2%;
+
+    .hrf-logo-img-container {
+        height: fit-content;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 2% 2%;
     }
 
     .hrf-logo-img-container img {
         height: 30px;
         width: 48px;
-       
+
     }
-   
+
     .header-text-container h1 {
         font-size: 1.5rem;
         padding-top: 5%;
@@ -170,7 +274,7 @@
         width: 85%;
         text-align: center;
         margin: 0 auto;
-       
+
     }
 
     .middle-section-text-container h3 {
@@ -213,23 +317,24 @@
 @media @mobile-medium {
     .header {
         height: 20vh;
-       display: block;
-       position: relative;
+        display: block;
+        position: relative;
     }
-    .hrf-logo-img-container{
-       height:fit-content;
-       position: absolute;
-       top: 0;
-       left: 0;
-       margin: 2% 2%;
+
+    .hrf-logo-img-container {
+        height: fit-content;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 2% 2%;
     }
 
     .hrf-logo-img-container img {
         height: 30px;
         width: 48px;
-       
+
     }
-   
+
     .header-text-container h1 {
         font-size: 1.5rem;
         padding-top: 5%;
@@ -271,7 +376,7 @@
         background-color: @secondary-color;
         padding-top: 5%;
         text-align: center;
-        
+
     }
 
     .hrf-img {
@@ -281,7 +386,7 @@
 
     .middle-section-text-container {
         width: 85%;
-       text-align: center;
+        text-align: center;
         margin: 0 auto;
     }
 
@@ -328,22 +433,23 @@
 @media @mobile-large {
     .header {
         height: 20vh;
-       display: block;
-       position: relative;
+        display: block;
+        position: relative;
     }
-    .hrf-logo-img-container{
-       height:fit-content;
-       position: absolute;
-       top: 0;
-       left: 0;
-       margin: 2% 2%;
+
+    .hrf-logo-img-container {
+        height: fit-content;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 2% 2%;
     }
 
     .hrf-logo-img-container img {
         height: 30px;
         width: 48px;
     }
-   
+
     .header-text-container h1 {
         font-size: 1.5rem;
         padding-top: 5%;
@@ -394,7 +500,7 @@
 
     .middle-section-text-container {
         width: 85%;
-       text-align: center;
+        text-align: center;
         margin: 0 auto;
     }
 
@@ -436,29 +542,30 @@
         display: flex;
         flex-wrap: wrap;
     }
-    
+
 }
 
 @media @tablet-small {
     .header {
         height: 30vh;
-       display: block;
-       position: relative;
+        display: block;
+        position: relative;
     }
-    .hrf-logo-img-container{
-       height:fit-content;
-       position: absolute;
-       top: 0;
-       left: 0;
-       margin: 1% 1%;
+
+    .hrf-logo-img-container {
+        height: fit-content;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 1% 1%;
     }
 
     .hrf-logo-img-container img {
         height: 66px;
         width: 108px;
-       
+
     }
-   
+
     .header-text-container h1 {
         font-size: 2.5rem;
         padding-top: 5%;
@@ -524,7 +631,8 @@
 
     .data-container {
         display: flex;
-        flex-wrap: wrap;
+
+        justify-content: space-evenly;
         width: 100%;
     }
 
@@ -556,23 +664,24 @@
 @media @tablet-large {
     .header {
         height: 30vh;
-       display: block;
-       position: relative;
+        display: block;
+        position: relative;
     }
-    .hrf-logo-img-container{
-       height:fit-content;
-       position: absolute;
-       top: 0;
-       left: 0;
-       
+
+    .hrf-logo-img-container {
+        height: fit-content;
+        position: absolute;
+        top: 0;
+        left: 0;
+
     }
 
     .hrf-logo-img-container img {
         height: 83px;
         width: 136px;
-       
+
     }
-   
+
     .header-text-container h1 {
         font-size: 3.5rem;
         padding-top: 5%;
@@ -625,6 +734,7 @@
         height: 232px;
         width: 450px;
     }
+
     .grant-rates-over-time-container p {
         font-size: 2.5rem;
     }
@@ -674,9 +784,11 @@
         width: 85%;
         margin-bottom: 5%;
     }
+
     .first-data-point-container h2 {
-       font-size: 3.5rem;
+        font-size: 3.5rem;
     }
+
     .first-data-point-container h3 {
         font-size: 1.5rem;
     }
@@ -685,23 +797,27 @@
         width: 85%;
         margin-bottom: 5%;
     }
+
     .second-data-point-container h2 {
         font-size: 3.5rem;
-     }
-     .second-data-point-container h3 {
-         font-size: 1.5rem;
-     }
+    }
+
+    .second-data-point-container h3 {
+        font-size: 1.5rem;
+    }
 
     .third-data-point-container {
         width: 85%;
         margin-bottom: 5%;
     }
+
     .third-data-point-container h2 {
         font-size: 3.5rem;
-     }
-     .third-data-point-container h3 {
-         font-size: 1.5rem;
-     }
+    }
+
+    .third-data-point-container h3 {
+        font-size: 1.5rem;
+    }
 
     .back-to-top {
         width: 35%;
@@ -733,7 +849,7 @@
     }
 
     .middle-section {
-        display:flex;
+        display: flex;
         width: 100%;
         justify-content: space-evenly;
         padding: 0 2%;
@@ -751,8 +867,8 @@
         padding: 0 2%;
     }
 
-   
- .first-data-point-container {
+
+    .first-data-point-container {
         width: 23%;
     }
 
@@ -763,7 +879,7 @@
     .third-data-point-container {
         width: 23%;
     }
-    
+
     .back-to-top {
         width: 35%;
     }
