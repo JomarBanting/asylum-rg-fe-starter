@@ -18,6 +18,7 @@ const { background_color } = colors;
 
 function GraphWrapper(props) {
   const { set_view, dispatch } = props;
+
   let { office, view } = useParams();
   if (!view) {
     set_view('time-series');
@@ -72,35 +73,67 @@ function GraphWrapper(props) {
                                    -- Mack 
     
     */
-
     if (office === 'all' || !office) {
       axios
-        .get(process.env.REACT_APP_API_URI, {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
-          params: {
-            from: years[0],
-            to: years[1],
-          },
-        })
-        .then(result => {
-          stateSettingCallback(view, office, test_data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
-        })
+        .all([
+          axios.get(
+            `https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary`,
+            {
+              params: {
+                from: years[0],
+                to: years[1],
+              },
+            }
+          ),
+          axios.get(
+            `https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipSummary`
+          ),
+        ])
+        .then(
+          axios.spread((fiscalData, citizenshipData) => {
+            console.log('fiscal data:');
+            console.log(fiscalData.data);
+            console.log('citizenship data:');
+            console.log(citizenshipData.data);
+
+            let data = fiscalData.data;
+            data.citizenshipResults = citizenshipData.data;
+
+            stateSettingCallback(view, office, [data]);
+          })
+        )
         .catch(err => {
           console.error(err);
         });
     } else {
       axios
-        .get(process.env.REACT_APP_API_URI, {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
-          params: {
-            from: years[0],
-            to: years[1],
-            office: office,
-          },
-        })
-        .then(result => {
-          stateSettingCallback(view, office, test_data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
-        })
+        .all([
+          axios.get(
+            `https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary`,
+            {
+              params: {
+                from: years[0],
+                to: years[1],
+                office: office,
+              },
+            }
+          ),
+          axios.get(
+            `https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipSummary`
+          ),
+        ])
+        .then(
+          axios.spread((fiscalData, citizenshipData) => {
+            console.log('fiscal data:');
+            console.log(fiscalData.data);
+            console.log('citizenship data:');
+            console.log(citizenshipData.data);
+
+            let data = fiscalData.data;
+            data.citizenshipResults = citizenshipData.data;
+            stateSettingCallback(view, office, [data]);
+          })
+        )
         .catch(err => {
           console.error(err);
         });

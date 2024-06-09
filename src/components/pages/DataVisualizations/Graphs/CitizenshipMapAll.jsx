@@ -6,6 +6,16 @@ import { colors } from '../../../../styles/data_vis_colors';
 
 const { background_color, secondary_accent_color } = colors;
 
+//function to create unique key for line 123-124
+const uid = function() {
+  return (
+    Date.now().toString(36) +
+    Math.random()
+      .toString(36)
+      .substr(2)
+  );
+};
+
 const mapStateToProps = state => {
   return {
     citizenshipMapAllData: state.vizReducer.citizenshipMapAllData,
@@ -25,9 +35,10 @@ function CitizenshipMapAll(props) {
       setPlotlyGraphAxis({
         locationsAndText:
           citizenshipMapAllData['countryGrantRateObj']['countries'],
-        z: citizenshipMapAllData['countryGrantRateObj'][
-          'countriesPercentGranteds'
-        ],
+        z:
+          citizenshipMapAllData['countryGrantRateObj'][
+            'countriesPercentGranteds'
+          ],
       });
     } else {
       setPlotlyGraphAxis({ locationsAndText: [], z: [] });
@@ -115,8 +126,9 @@ function CitizenshipMapAll(props) {
       />
       <label htmlFor="regionSelect">Select another region below</label>
       <select name="regionSelect" onChange={handleScopeChange}>
+        {/*added uid function to generate unique key*/}
         {geoScopeArray.map(a => {
-          return <option value={a}>{a.toUpperCase()}</option>;
+          return <option key={uid()}>{a.toUpperCase()}</option>;
         })}
       </select>
       <p>Table view</p>
