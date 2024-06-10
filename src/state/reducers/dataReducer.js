@@ -6,9 +6,11 @@ import {
   GET_MOCK_FILTERED_DATA,
   PERFORM_ADVANCED_SEARCH,
   TOGGLE_ADVANCED_SEARCH,
+  GET_REQUEST,
 } from '../actionTypes';
 
 export const initialState = {
+  apiData: [],
   cases: [],
   comparisonData: {
     //This will hold keys and values for default displays on the site landing page, similar to TRAC
@@ -58,6 +60,12 @@ function dataReducer(state = initialState, action) {
     }
     case RESET_CASE_DATA: {
       return { ...state, filterCount: 0, filteredCases: [] };
+    }
+    case GET_REQUEST: {
+      return {
+        ...state,
+        apiData: [action.payload],
+      };
     }
     default: {
       return state;

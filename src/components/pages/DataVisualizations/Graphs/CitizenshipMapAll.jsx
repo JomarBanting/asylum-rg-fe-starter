@@ -7,14 +7,14 @@ import { colors } from '../../../../styles/data_vis_colors';
 const { background_color, secondary_accent_color } = colors;
 
 //function to create unique key for line 123-124
-const uid = function() {
-  return (
-    Date.now().toString(36) +
-    Math.random()
-      .toString(36)
-      .substr(2)
-  );
-};
+// const uid = function() {
+//   return (
+//     Date.now().toString(36) +
+//     Math.random()
+//       .toString(36)
+//       .substr(2)
+//   );
+// };
 
 const mapStateToProps = state => {
   return {
@@ -128,7 +128,7 @@ function CitizenshipMapAll(props) {
       <select name="regionSelect" onChange={handleScopeChange}>
         {/*added uid function to generate unique key*/}
         {geoScopeArray.map(a => {
-          return <option key={uid()}>{a.toUpperCase()}</option>;
+          return <option /*key={uid()}*/>{a.toUpperCase()}</option>;
         })}
       </select>
       <p>Table view</p>
