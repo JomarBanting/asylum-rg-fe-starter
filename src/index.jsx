@@ -12,7 +12,7 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { LandingPage } from './components/pages/Landing';
 
 import { FooterContent, SubFooter } from './components/Layout/Footer';
-import { HeaderContent } from './components/Layout/Header';
+import HeaderContent from './components/Layout/Header';
 
 // import { TablePage } from './components/pages/Table';
 
@@ -22,6 +22,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
 import { colors } from './styles/data_vis_colors';
+import { ProfilePage } from './components/pages/Landing/Profile';
 
 const { primary_accent_color } = colors;
 
@@ -54,6 +55,7 @@ export function App() {
       <Switch>
         <Route path="/" exact component={LandingPage} />
         <Route path="/graphs" component={GraphsContainer} />
+        <Route path="/profile" component={ProfilePage} />
         <Route component={NotFoundPage} />
       </Switch>
       <Footer

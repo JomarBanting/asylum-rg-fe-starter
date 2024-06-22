@@ -13,7 +13,7 @@ import { useHistory } from 'react-router-dom';
 // for the purposes of testing PageNav
 // import PageNav from '../../common/PageNav';
 
-function RenderLandingPage(props) {
+function RenderLandingPage() {
   const scrollToTop = () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
@@ -62,16 +62,12 @@ function RenderLandingPage(props) {
           View the Data
         </Button>
         {/*Download the Data Button Added */}
-        <a>
-          <div>
-            <Button
-              type="button"
-              style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
-            >
-              <span>Download the Data</span>
-            </Button>
-          </div>
-        </a>
+        <Button
+          type="button"
+          style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+        >
+          <span>Download the Data</span>
+        </Button>
       </div>
 
       <div className="middle-section">
@@ -137,4 +133,5 @@ function RenderLandingPage(props) {
     </div>
   );
 }
+
 export default RenderLandingPage;

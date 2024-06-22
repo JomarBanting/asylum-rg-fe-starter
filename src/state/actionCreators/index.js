@@ -9,6 +9,7 @@ import {
   RESET_VISUALIZATION_QUERY,
   SET_HEAT_MAP_YEARS,
   GET_REQUEST,
+  SET_AUTH_STATE,
 } from '../actionTypes';
 
 export const setVisualizationData = (view, office, data) => {
@@ -48,5 +49,13 @@ export const setGetRequest = data => {
   return {
     type: GET_REQUEST,
     payload: data,
+  };
+};
+
+//Auth0 reducer
+export const setAuthState = data => {
+  return {
+    type: SET_AUTH_STATE,
+    payload: { ...data },
   };
 };

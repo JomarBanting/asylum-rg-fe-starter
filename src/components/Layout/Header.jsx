@@ -3,10 +3,24 @@ import { Image } from 'antd';
 import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
+import NavBar from '../pages/Landing/Authentication/NavBar';
+import { connect } from 'react-redux';
+import { Auth0Provider } from '@auth0/auth0-react';
+import { useHistory } from 'react-router-dom';
 
 const { primary_accent_color } = colors;
 
-function HeaderContent() {
+function HeaderContent(props) {
+  const { isAuthenticated } = props;
+  const history = useHistory();
+
+  const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+  const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+
+  const onRedirectCallback = appState => {
+    history.push(appState?.returnTo || window.location.pathname);
+  };
+
   return (
     <div
       style={{
@@ -22,6 +36,16 @@ function HeaderContent() {
         </a>
       </div>
       <div>
+        {isAuthenticated ? (
+          <Link
+            to="/profile"
+            style={{ color: '#E2F0F7', paddingRight: '75px' }}
+          >
+            Profile
+          </Link>
+        ) : (
+          <></>
+        )}
         <Link to="/" style={{ color: '#E2F0F7', paddingRight: '75px' }}>
           Home
         </Link>
@@ -29,8 +53,25 @@ function HeaderContent() {
           Graphs
         </Link>
       </div>
+
+      <Auth0Provider
+        domain={domain}
+        clientId={clientId}
+        onRedirectCallback={onRedirectCallback}
+        authorizationParams={{
+          redirect_uri: window.location.origin,
+        }}
+      >
+        <NavBar />
+      </Auth0Provider>
     </div>
   );
 }
 
-export { HeaderContent };
+function mapStateToProps(state) {
+  return {
+    isAuthenticated: state.authReducer.isAuthenticated,
+  };
+}
+
+export default connect(mapStateToProps)(HeaderContent);
